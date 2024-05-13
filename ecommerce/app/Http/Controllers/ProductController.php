@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProductRequest;
 
@@ -24,12 +25,13 @@ class ProductController extends Controller
     {
         $isUpdate=false;
         $product = new Product();
+        $categories = Category::all();
         $product->fill([
             'quantity' => 0,
             'price' => 0,
         ]);
         $products = Product::query()->paginate (1);
-        return view('product.form', compact('product', 'isUpdate'));
+        return view('product.form', compact('product', 'isUpdate' ,'categories'));
     }
 
     /**
@@ -62,8 +64,9 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $isUpdate = true;
+        $categories = Category::all();
         $products = Product::query()->paginate (1);
-        return view('product.form', compact('product' ,'isUpdate'));
+        return view('product.form', compact('product', 'isUpdate' ,'categories'));
     }
 
     /**

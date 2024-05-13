@@ -41,7 +41,16 @@
             <input type="number" name="price" step="0.5" class="form-control"
                 value="{{ old('price', $product->price) }}">
         </div>
+        <div class="form-group">
+            <label for="category" class="form-label">Category</label>
+            <select name="category" id="category" class="form-select">
+                @foreach($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
 
+            </select>
+        </div>
+<br>
         <div class="form-group">
             <input type="submit" class="btn btn-primary w-100" value="{{ $isUpdate ? 'Edit' : 'Create' }}">
         </div>
