@@ -18,12 +18,12 @@
                             <span>Quantity:  <span class="badge bg-success">{{$product->quantity}}</span></span>
                             <span>
 
-                            Price: <span class="badge bg-primary">{{$product->price}} MAD</span>
+                            Price: <span class="badge bg-primary">{{$product->price}} DZA</span>
                             </span>
                         </div>
                         <hr>
                         <div class="my-2">
-                            Category: <span class="badge bg-primary">{{$product->category?->name}}</span>
+                            Category: <span class="badge bg-success">{{$product->category?->name}}</span>
                         </div>
                     </div>
                     <div class="card-footer">
