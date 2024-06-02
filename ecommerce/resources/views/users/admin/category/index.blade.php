@@ -1,4 +1,4 @@
-@extends('base')
+@extends('users.admin.app')
 @section('title', 'Category')
 
 @section('content')
@@ -21,6 +21,8 @@
 
                         <th>
                             <div class="btn-group gap-2">
+                                <a href="{{route('categories.show', $category)}}" class="btn btn-info">Show</a>
+
                                 <a href="{{route('categories.edit', $category)}}" class="btn btn-primary">Update</a>
                                 <form method="post" action="{{route('categories.destroy' , $category)}}">
                                     @csrf

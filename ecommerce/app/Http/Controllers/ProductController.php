@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -9,13 +10,16 @@ use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
-    /**
+
+/**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $products = Product::query()->paginate(2);
-        return view('product.index', compact('products'));
+        $products = Product::query()->paginate(10);
+        return view('users.admin.product.index', compact(
+            'products'
+        ));
     }
 
     /**
@@ -23,32 +27,34 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $isUpdate=false;
         $product = new Product();
         $categories = Category::all();
         $product->fill([
             'quantity' => 0,
             'price' => 0,
         ]);
-        $products = Product::query()->paginate (1);
-        return view('product.form', compact('product', 'isUpdate' ,'categories'));
+        $isUpdate = false;
+        return view('users.admin.product.form', compact(
+            'product', 'isUpdate', 'categories'
+        ));
     }
 
     /**
      * Store a newly created resource in storage.
      */
 
-    public function store(ProductRequest $request)
-    {
-        $formFields = $request->validated();
-        if ($request->hasFile('image')) {
+     public function store(ProductRequest $request)
+     {
+         $formFields = $request->validated();
+         
+         if ($request->hasFile('image')) {
             $formFields['image'] = $request->file('image')->store('product', 'public');
         }
 
-        Product::create($formFields);
+         Product::create($formFields);
 
-        return to_route('products.index')->with('success', 'Product create successfully');
-    }
+         return to_route('products.index')->with('success', 'Product created successfully');
+     }
 
     /**
      * Display the specified resource.
@@ -65,8 +71,9 @@ class ProductController extends Controller
     {
         $isUpdate = true;
         $categories = Category::all();
-        $products = Product::query()->paginate (1);
-        return view('product.form', compact('product', 'isUpdate' ,'categories'));
+        return view('users.admin.product.form', compact(
+            'product', 'isUpdate', 'categories'
+        ));
     }
 
     /**
@@ -74,9 +81,14 @@ class ProductController extends Controller
      */
     public function update(ProductRequest $request, Product $product)
     {
-       $product->fill($request->validated())->save();
-       return to_route('products.index')->with('success', 'Product updated successfully');
 
+        $formFields = $request->validated();
+
+
+        $product->fill($formFields)->save();
+
+
+        return redirect()->route('products.index')->with('success', 'Product updated successfully');
     }
 
     /**
@@ -86,7 +98,5 @@ class ProductController extends Controller
     {
         $product->delete();
         return to_route('products.index')->with('success', 'Product deleted successfully');
-
-
     }
 }

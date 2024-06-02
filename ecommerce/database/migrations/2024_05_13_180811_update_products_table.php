@@ -10,12 +10,11 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+    
     public function up(): void
     {
         Schema::table('products', function (Blueprint $table) {
-
-            $table->foreignIdFor(Category::class)->nullable()->cascadeOnDelete();
-
+            $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
         });
     }
 
@@ -25,9 +24,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('products', function (Blueprint $table) {
-
-            $table->foreignIdFor(Category::class)->constrained()->cascadeOnDelete();
-
+            $table->dropForeignIdFor(Category::class);
         });
     }
 };

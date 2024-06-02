@@ -29,7 +29,7 @@ class StoreController extends Controller
             'price' => 0,
         ]);
         $products = Product::query()->paginate (1);
-        return view('product.form', compact('product', 'isUpdate'));
+        return view('users.admin.product.form', compact('product', 'isUpdate'));
     }
 
     /**
@@ -63,7 +63,7 @@ class StoreController extends Controller
     {
         $isUpdate = true;
         $products = Product::query()->paginate (1);
-        return view('product.form', compact('product' ,'isUpdate'));
+        return view('users.admin.product.form', compact('product' ,'isUpdate'));
     }
 
     /**

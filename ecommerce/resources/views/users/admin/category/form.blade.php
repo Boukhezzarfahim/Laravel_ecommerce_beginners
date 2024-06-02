@@ -1,4 +1,4 @@
-@extends('base')
+@extends('users.admin.app')
 @section('title', ($isUpdate ? 'Update' : 'Create') . ' ' . 'categories')
 
 @section('content')

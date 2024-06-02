@@ -1,4 +1,4 @@
-@extends('base')
+@extends('users.admin.app')
 @section('title', 'Products')
 
 @section('content')
@@ -14,6 +14,7 @@
                 <th>Descriptions</th>
                 <th>Quantity</th>
                 <th>Image</th>
+                <th>Category</th>
                 <th>Price</th>
                 <th>Operations</th>
             </tr>
@@ -26,6 +27,15 @@
                     <td>{{ $product->description }}</td>
                     <td>{{ $product->quantity }}</td>
                     <td><img width="100px" src="storage/{{ $product->image }}" alt=""></td>
+
+                    <td> 
+                        <a class="" href="{{route('categories.show' , $product->category_id)}}"> 
+                        <span class="badge bg-success">
+                            {{ $product->category->name }}
+                       </span>
+                    </a>
+                </td>
+
                     <td>{{ $product->price }} DZA</td>
 
                         <th>

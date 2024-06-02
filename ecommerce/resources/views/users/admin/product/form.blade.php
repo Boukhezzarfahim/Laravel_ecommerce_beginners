@@ -1,4 +1,4 @@
-@extends('base')
+@extends('users.admin.app')
 @section('title', ($isUpdate ? 'Update' : 'Create') . ' ' . 'products')
 
 @section('content')
@@ -42,10 +42,11 @@
                 value="{{ old('price', $product->price) }}">
         </div>
         <div class="form-group">
-            <label for="category" class="form-label">Category</label>
-            <select name="category" id="category" class="form-select">
+            <label for="category_id" class="form-label">Category</label>
+            <select name="category_id" id="category_id" class="form-select">
+                <option value="" >----Choisir la catégorie----</option>
                 @foreach($categories as $category)
-                <option value="{{$category->id}}">{{$category->name}}</option>
+                <option @selected(old('category_id', $product->category_id) === $category->id) value="{{$category->id}}">{{$category->name}}</option>
                 @endforeach
 
             </select>
