@@ -28,13 +28,17 @@
                     <td>{{ $product->quantity }}</td>
                     <td><img width="100px" src="storage/{{ $product->image }}" alt=""></td>
 
+<<<<<<< HEAD:ecommerce/resources/views/users/admin/product/index.blade.php
                     <td> 
-                        <a class="" href="{{route('categories.show' , $product->category_id)}}"> 
+                        <a class="" href="{{route('users.admin.categories.show' , $product->category_id)}}"> 
                         <span class="badge bg-success">
                             {{ $product->category->name }}
                        </span>
                     </a>
                 </td>
+=======
+                    <td> <span class="badge bg-success">{{ $product->category->name }}</span></td>
+>>>>>>> 8c09309d71aabf58d9177d22315ee98ca7fa06ee:ecommerce/resources/views/product/index.blade.php
 
                     <td>{{ $product->price }} DZA</td>
 

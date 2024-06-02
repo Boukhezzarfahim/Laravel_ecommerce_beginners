@@ -17,7 +17,11 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::query()->paginate(10);
+<<<<<<< HEAD
         return view('users.admin.product.index', compact(
+=======
+        return view('users.admin.product.index', compact(
+>>>>>>> 8c09309d71aabf58d9177d22315ee98ca7fa06ee
             'products'
         ));
     }
@@ -34,7 +38,11 @@ class ProductController extends Controller
             'price' => 0,
         ]);
         $isUpdate = false;
+<<<<<<< HEAD
         return view('users.admin.product.form', compact(
+=======
+        return view('product.form', compact(
+>>>>>>> 8c09309d71aabf58d9177d22315ee98ca7fa06ee
             'product', 'isUpdate', 'categories'
         ));
     }
@@ -71,7 +79,11 @@ class ProductController extends Controller
     {
         $isUpdate = true;
         $categories = Category::all();
+<<<<<<< HEAD
         return view('users.admin.product.form', compact(
+=======
+        return view('product.form', compact(
+>>>>>>> 8c09309d71aabf58d9177d22315ee98ca7fa06ee
             'product', 'isUpdate', 'categories'
         ));
     }
