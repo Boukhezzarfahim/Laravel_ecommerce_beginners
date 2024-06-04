@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\CategoryController;
 
 
 
-Route::get('/', [StoreController::class, 'index']);
+Route::get('/', [StoreController::class, 'index'])->name('home_page');
 
 
 Route::middleware(['auth','editor'])->group(function(){
