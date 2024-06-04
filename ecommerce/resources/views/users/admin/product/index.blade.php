@@ -4,7 +4,7 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center">
         <h1>Product list </h1>
-        <a href="{{route('products.create')}}" class="btn btn-primary">Create</a>
+        <a wire:navigate href="{{route('products.create')}}" class="btn btn-primary">Create</a>
     </div>
     <table class="table">
         <thead>
@@ -28,7 +28,7 @@
                 <td align="center">
 
                     @if($product->category)
-                        <a href="{{route('categories.show', $product->category_id)}}" class="btn btn-link">
+                    <a wire:navigate href="{{ route('categories.show', $product->category_id) }}" class="btn btn-link">
                         <span class="badge bg-primary">
                           {{$product->category->name}}
                         </span>
@@ -40,11 +40,11 @@
                 <td>{{$product->price}} MAD</td>
                 <td>
                     <div class="btn-group gap-2">
-                        <a href="{{route('products.edit', $product)}}" class="btn btn-primary">Update</a>
+                        <a wire:navigate href="{{route('products.edit', $product)}}" class="btn btn-primary">Update</a>
                         <form method="post" action="{{route('products.destroy', $product)}}">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" class="btn btn-danger" value="Delete"/>
+                            <input  type="submit" class="btn btn-danger" value="Delete"/>
                         </form>
                     </div>
                 </td>

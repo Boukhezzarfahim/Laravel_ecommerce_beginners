@@ -4,7 +4,7 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center">
         <h1>Category :{{$category->name}} </h1>
-        <a href="{{ route('categories.index') }}" class="btn btn-primary">Go Back</a>
+        <a wire:navigate href="{{ route('categories.index') }}" class="btn btn-primary">Go Back</a>
     </div>
     <table class="table">
         <thead>
@@ -23,7 +23,7 @@
 
                         <th>
                             <div class="btn-group gap-2">
-                                <a href="{{route('products.edit', $product)}}" class="btn btn-primary">Update</a>
+                                <a wire:navigate href="{{route('products.edit', $product)}}" class="btn btn-primary">Update</a>
                             </div>
                         </th>
 

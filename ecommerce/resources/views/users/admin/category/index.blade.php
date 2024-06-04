@@ -4,7 +4,7 @@
 @section('content')
     <div class="d-flex justify-content-between align-items-center">
         <h1>Category list </h1>
-        <a href="{{ route('categories.create') }}" class="btn btn-primary">Create</a>
+        <a wire:navigate href="{{ route('categories.create') }}" class="btn btn-primary">Create</a>
     </div>
     <table class="table">
         <thead>
@@ -21,9 +21,9 @@
 
                         <th>
                             <div class="btn-group gap-2">
-                                <a href="{{route('categories.show', $category)}}" class="btn btn-info">Show</a>
+                                <a wire:navigate href="{{route('categories.show', $category)}}" class="btn btn-info">Show</a>
 
-                                <a href="{{route('categories.edit', $category)}}" class="btn btn-primary">Update</a>
+                                <a wire:navigate href="{{route('categories.edit', $category)}}" class="btn btn-primary">Update</a>
                                 <form method="post" action="{{route('categories.destroy' , $category)}}">
                                     @csrf
                                     @method('DELETE')

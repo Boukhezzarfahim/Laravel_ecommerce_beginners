@@ -10,7 +10,7 @@
         }
     @endphp
 
-    <form action="{{ $route }}" method="post" enctype="multipart/form-data">
+    <form  action="{{ $route }}" method="post" enctype="multipart/form-data">
         @csrf
         @if($isUpdate)
         @method('PUT')

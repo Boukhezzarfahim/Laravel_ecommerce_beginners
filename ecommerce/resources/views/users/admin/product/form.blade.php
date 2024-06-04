@@ -53,7 +53,7 @@
         </div>
 <br>
         <div class="form-group">
-            <input type="submit" class="btn btn-primary w-100" value="{{ $isUpdate ? 'Edit' : 'Create' }}">
+            <input  type="submit" class="btn btn-primary w-100" value="{{ $isUpdate ? 'Edit' : 'Create' }}">
         </div>
     </form>
 @endsection

@@ -15,9 +15,9 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @livewireStyles
 </head>
 <body>
-
 
 @include('shared.nav')
 <div class="container" id="app">
@@ -47,5 +47,6 @@
 
     </main>
 </div>
+@livewireScripts
 </body>
 </html>
